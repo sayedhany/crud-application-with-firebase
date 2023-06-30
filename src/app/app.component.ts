@@ -52,7 +52,8 @@ export class AppComponent implements OnInit {
     this.postsService.clearPosts().subscribe((data) => {
       this.isFeatching = false;
       console.log(data, 'deleted');
-      this.onFetchPosts();
+      // this.onFetchPosts();
+      this.loadedPosts = [];
       // this.isFeatching = false;
     });
   }
