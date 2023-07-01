@@ -16,6 +16,7 @@ interface MyObject {
 export class AppComponent implements OnInit {
   loadedPosts: MyObject[] = [];
   isFeatching = false;
+  error = null;
   constructor(private http: HttpClient, private postsService: PostsService) {}
 
   ngOnInit() {
@@ -40,10 +41,20 @@ export class AppComponent implements OnInit {
   onFetchPosts() {
     // Send Http request
     this.isFeatching = true;
-    this.postsService.fetchPosts().subscribe((posts) => {
-      this.loadedPosts = posts;
-      this.isFeatching = false;
-    });
+    this.postsService.fetchPosts().subscribe(
+      (posts) => {
+        this.loadedPosts = posts;
+        // this.isFeatching = false;
+      },
+      (error) => {
+        // this.isFeatching = false;
+        console.log('error', error.message);
+        this.error = error.message;
+      },
+      () => {
+        this.isFeatching = false;
+      }
+    );
   }
 
   onClearPosts() {

@@ -12,12 +12,10 @@ interface MyObject {
 export class PostsService {
   constructor(private http: HttpClient) {}
   createPosts(postData: MyObject) {
-    return this.http
-      .post<MyObject>(
-        'https://ang-test-f2a5d-default-rtdb.firebaseio.com/posts.json',
-        postData
-      )
-
+    return this.http.post<MyObject>(
+      'https://ang-test-f2a5d-default-rtdb.firebaseio.com/posts.json',
+      postData
+    );
   }
   fetchPosts() {
     return this.http
