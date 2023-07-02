@@ -1,6 +1,6 @@
-# TestApp
-
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.1.0.
+# CRUD APP USING FIREBASE
+ - live view: https://crud-test-app.netlify.app
+- This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.1.0.
 
 ## Development server
 

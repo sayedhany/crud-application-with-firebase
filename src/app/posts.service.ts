@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { map } from 'rxjs/operators';
 interface MyObject {
@@ -20,7 +20,13 @@ export class PostsService {
   fetchPosts() {
     return this.http
       .get<{ [key: string]: MyObject }>(
-        'https://ang-test-f2a5d-default-rtdb.firebaseio.com/posts.json'
+        'https://ang-test-f2a5d-default-rtdb.firebaseio.com/posts.json',
+        {
+          headers: new HttpHeaders({
+            'custom-header': 'hello',
+          }),
+          params: new HttpParams().set('print', 'Hello'),
+        }
       )
       .pipe(
         map((responseData) => {

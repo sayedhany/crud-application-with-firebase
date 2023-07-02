@@ -50,11 +50,13 @@ export class AppComponent implements OnInit {
         // this.isFeatching = false;
         console.log('error', error.message);
         this.error = error.message;
-      },
-      () => {
         this.isFeatching = false;
       }
     );
+  }
+  onHandleError() {
+    this.error = null;
+    this.isFeatching = false;
   }
 
   onClearPosts() {
